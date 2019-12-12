@@ -1,0 +1,35 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'com.warn.intrafiles'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    dependencies {
+        compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+
+        //Spring
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
+
+        //Spring Boot test
+        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.2.1.RELEASE'
+    }
+}

@@ -1,0 +1,34 @@
+version: "3.5"
+
+networks:
+  test:
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: intrafiles_service
+    ports:
+      - 7003:8080
+    depends_on:
+      - tomcat
+    networks:
+      - test
+    volumes:
+      - tomcat:/usr/local/tomcat/conf/
+
+  tomcat:
+    image: tomcat:8-jdk8-openjdk-slim
+    container_name: tomcat_intranet_service
+    ports:
+      - 7004:8080
+    volumes:
+      - redzone_data:/opt/ca/
+      - partners_data:/opt/partners_content/
+      - tomcat:/usr/local/tomcat/conf/
+
+volumes:
+  redzone_data:
+  partners_data:
+  tomcat:
