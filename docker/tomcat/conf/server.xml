@@ -163,8 +163,7 @@
 
                 <Context path="/ca" docBase="/opt/ca/" />
                 <Context path="/partners_content" docBase="/opt/partners_content/" />
-                <Context path="/faq" docBase="\\na2\group\Department\Information Technology\NonPublic\Procedures" />
-
+<!--                <Context path="/faq" docBase="\\na2\group\Department\Information Technology\NonPublic\Procedures" />-->
             </Host>
         </Engine>
     </Service>
